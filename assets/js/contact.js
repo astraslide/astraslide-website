@@ -25,8 +25,8 @@ window.onscroll = function () {
     }
 };
 
-const scriptURL = 'https://script.google.com/macros/s/~~~~~/exec'
-const form = document.forms['submit-to-google-sheet']
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxpRp3S6NKweoNn5unjNpS0YAYgWbtj6wnsaGEuIPJFHrMY2YK4gEoZlEB3sEOtnyVh/exec'
+const form = document.forms['astraslide-contact']
 const msg = document.getElementById("msg")
 
 form.addEventListener('submit', e => {
@@ -39,15 +39,13 @@ form.addEventListener('submit', e => {
                     msg.innerHTML = ""
                 }, 5000)
                 form.reset()
-                // window.location.href = "thank-you.html";
+                window.location.href = "thank-you";
             } else {
                 console.error('Error!', response.statusText);
             }
         })
         .catch(error => console.error('Error!', error.message));
-    }
-);
-
+});
 
 function delayer() {
     setTimeout(downLoad, 500)
