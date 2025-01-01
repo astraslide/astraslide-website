@@ -1,46 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-
-<url>
-  <loc>https://www.astraslide.co/</loc>
-  <lastmod>2024-11-15T05:13:03+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.astraslide.co/about-astraslide</loc>
-  <lastmod>2024-11-15T05:13:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.astraslide.co/products</loc>
-  <lastmod>2024-11-15T05:13:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.astraslide.co/gallery</loc>
-  <lastmod>2024-11-15T05:13:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.astraslide.co/contact-us</loc>
-  <lastmod>2024-11-15T05:13:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.astraslide.co/index</loc>
-  <lastmod>2024-11-15T05:13:03+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.astraslide.co/privacy-policy</loc>
-  <lastmod>2024-11-15T05:13:03+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <url>
+    <loc>https://www.astraslide.co/</loc>
+  </url>
+  <url>
+    <loc>https://www.astraslide.co/about-astraslide</loc>
+  </url>
+  <url>
+    <loc>https://www.astraslide.co/products</loc>
+  </url>
+  <url>
+    <loc>https://www.astraslide.co/gallery</loc>
+  </url>
+  <url>
+    <loc>https://www.astraslide.co/contact-us</loc>
+  </url>
+  <url>
+    <loc>https://www.astraslide.co/index</loc>
+  </url>
+  <url>
+    <loc>https://www.astraslide.co/privacy-policy</loc>
+  </url>
 </urlset>
