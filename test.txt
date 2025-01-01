@@ -23,3 +23,49 @@
     <a href="gallery.html" class="doing" style="color: #fff;">View All</a>
     </center>
 </section>
+
+<center class="">
+    <div>
+        <a href="https://www.astraslide.co/" class="nav__logo">
+            ASTRA<span class="line">SLIDE</span>
+            <img src="https://astra-slide.vercel.app/assets/img/image.png" alt="">
+        </a>
+
+        <h2 class="section__title" style="font-size: 4rem;">
+            Dive into Luxury!
+        </h2>
+        <p class="section__subtitle" style="font-size: 1.2rem;">
+            Elevating poolscapes with premium equipment and expert installations.
+        </p>
+    </div>
+</center>
+
+
+
+<center>
+    <section class="gallarey container-1 bd-container">
+        <div class=" gallarey__container">
+            <div class="image__gallarey">
+                <div class="gallarey__col">
+                    <img src="assets/img/landing.jpg" alt="gallary" />
+                    <img src="assets/img/landing.jpg" alt="gallary" style="visibility: hidden;"/>
+                </div>
+                <div class="gallarey__col">
+                    <img src="assets/img/guitar.jpg" alt="gallary" />
+                    <img src="assets/img/landingg.jpg" alt="gallary" style="display: none;" />
+                </div>
+            </div>
+            <div class="image__gallarey">
+                <div class="gallarey__col">
+                    <!-- <img src="assets/img/landing.jpg" alt="gallary" style="display: none;"/> -->
+                    <img src="assets/img/landing-1.jpg" alt="gallary" />
+                    <img src="assets/img/landing.jpg" alt="gallary" style="visibility: hidden;"/>
+                </div>
+                <div class="gallarey__col">
+                    <img src="assets/img/guitar.jpg" alt="gallary" style="display: none;"/>
+                    <img src="assets/img/landing-6.jpg" alt="gallary" />
+                </div>
+            </div>
+        </div>
+    </section>
+</center>
