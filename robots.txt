@@ -2,3 +2,4 @@ User-agent: *
 Disallow: 
 Disallow: /cgi-bin/
 Sitemap: https://www.astraslide.co/sitemap.xml
+LLMs: https://www.astraslide.co/llms.txt
