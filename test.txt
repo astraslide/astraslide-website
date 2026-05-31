@@ -72,3 +72,29 @@ We won't track your information when you visit our site. But in order to comply 
         </div>
     </section>
 </center>
+
+// {
+//     "cleanUrls": true,
+//     "rewrites": [
+//         {
+//             "source": "/",
+//             "destination": "/landing/index.html"
+//         },
+//         {
+//             "source": "/shop",
+//             "destination": "/shop/index.html"
+//         },
+//         {
+//             "source": "/product/:id",
+//             "destination": "/shop/product.html?id=:id"
+//         },
+//         {
+//             "source": "/privacy-policy",
+//             "destination": "/landing/privacy-policy.html"
+//         },
+//         {
+//             "source": "/return-policy",
+//             "destination": "/landing/return-policy.html"
+//         }
+//     ]
+// }

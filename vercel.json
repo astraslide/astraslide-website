@@ -1,24 +1,56 @@
+
+
 {
     "cleanUrls": true,
     "rewrites": [
         {
-            "source": "/",
-            "destination": "/landing/index.html"
-        },
-        {
-            "source": "/shop",
-            "destination": "/shop/index.html"
-        },
-        {
             "source": "/product/:id",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "shop.astraslide.co"
+                }
+            ],
             "destination": "/shop/product.html?id=:id"
         },
         {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "shop.astraslide.co"
+                }
+            ],
+            "destination": "/shop/index.html"
+        },
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "astraslide.co"
+                }
+            ],
+            "destination": "/landing/index.html"
+        },
+        {
             "source": "/privacy-policy",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "astraslide.co"
+                }
+            ],
             "destination": "/landing/privacy-policy.html"
         },
         {
             "source": "/return-policy",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "astraslide.co"
+                }
+            ],
             "destination": "/landing/return-policy.html"
         }
     ]
