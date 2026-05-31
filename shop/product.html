@@ -411,143 +411,135 @@
     <script src="https://astra-slide.vercel.app/assets/js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get("id");
 
-            if (!productId) {
-                document.getElementById("detail-title").textContent = "Product not found";
-                return;
-            }
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get("id");
 
-            // ✅ Use productsData.products (same as index.html)
-            const product = productsData.products.find(p => p.id === productId);
-            if (!product) {
-                document.getElementById("detail-title").textContent = "Product not found";
-                return;
-            }
+                if (!productId) {
+                    document.getElementById("detail-title").textContent = "Product not found";
+                    return;
+                }
 
-            document.getElementById("detail-title").textContent = product.title;
-            document.getElementById("detail-desc").innerHTML = product.description.trim();
+                const product = productsData.products.find(p => p.id === productId);
 
-            const imagesEl = document.getElementById("detail-images");
-            imagesEl.innerHTML = "";
+                if (!product) {
+                    document.getElementById("detail-title").textContent = "Product not found";
+                    return;
+                }
 
-            const imageUrls = product.images || [
-                product.image,
-                product.image.replace("400x400", "400x400&v=2"),
-                product.image.replace("400x400", "400x400&v=3")
-            ];
+                document.getElementById("detail-title").textContent = product.title;
+                document.getElementById("detail-desc").innerHTML = product.description.trim();
 
-            // Create carousel slides
-            imageUrls.forEach((imgUrl, i) => {
-                const slide = document.createElement("div");
-                slide.className = "carousel-slide";
-                const img = document.createElement("img");
-                img.src = imgUrl;
-                img.alt = `${product.title} view ${i + 1}`;
-                img.classList.add("product-detail-img");
-                slide.appendChild(img);
-                imagesEl.appendChild(slide);
-            });
+                // ==========================
+                // META TAGS
+                // ==========================
 
-            
-            // Carousel logic (simple)
-            const slides = document.querySelectorAll(".carousel-slide");
-            let currentIndex = 0;
+                const productUrl = `https://shop.astraslide.co/${product.id}`;
 
-            function showSlide(index) {
-                slides.forEach((s, i) => {
-                    s.style.display = i === index ? "block" : "none";
+                const productImage =
+                    product.images?.[0] || product.image;
+
+                const cleanDesc =
+                    product.description.replace(/<[^>]*>/g, '').substring(0, 160);
+
+                document.title = `${product.title} | Astraslide Shop`;
+
+                document.getElementById("metaDescription")
+                    .setAttribute("content", cleanDesc);
+
+                document.getElementById("ogTitle")
+                    .setAttribute("content", `${product.title} | Astraslide Shop`);
+
+                document.getElementById("ogDescription")
+                    .setAttribute("content", cleanDesc);
+
+                document.getElementById("ogImage")
+                    .setAttribute("content", productImage);
+
+                document.getElementById("ogUrl")
+                    .setAttribute("content", productUrl);
+
+                document.getElementById("twitterTitle")
+                    .setAttribute("content", `${product.title} | Astraslide Shop`);
+
+                document.getElementById("twitterDescription")
+                    .setAttribute("content", cleanDesc);
+
+                document.getElementById("twitterImage")
+                    .setAttribute("content", productImage);
+
+                document.getElementById("canonical")
+                    .setAttribute("href", productUrl);
+
+                // ==========================
+                // SHARE LINKS
+                // ==========================
+
+                const currentUrl = encodeURIComponent(window.location.href);
+                const pageTitle = encodeURIComponent(document.title);
+
+                document.getElementById('facebookShare').href =
+                    `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
+                document.getElementById('twitterShare').href =
+                    `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
+
+                document.getElementById('whatsappShare').href =
+                    `https://wa.me/?text=${pageTitle}%20${currentUrl}`;
+
+                document.getElementById('linkShare').addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    navigator.clipboard.writeText(window.location.href)
+                        .then(() => alert('Link copied to clipboard!'))
+                        .catch(err => console.error('Failed to copy:', err));
                 });
-            }
 
-            document.getElementById("prev-btn").addEventListener("click", () => {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                // ==========================
+                // CAROUSEL CODE
+                // ==========================
+
+                const imagesEl = document.getElementById("detail-images");
+                imagesEl.innerHTML = "";
+
+                const imageUrls = product.images || [
+                    product.image
+                ];
+
+                imageUrls.forEach((imgUrl, i) => {
+                    const slide = document.createElement("div");
+                    slide.className = "carousel-slide";
+
+                    const img = document.createElement("img");
+                    img.src = imgUrl;
+                    img.alt = `${product.title} view ${i + 1}`;
+                    img.classList.add("product-detail-img");
+
+                    slide.appendChild(img);
+                    imagesEl.appendChild(slide);
+                });
+
+                const slides = document.querySelectorAll(".carousel-slide");
+                let currentIndex = 0;
+
+                function showSlide(index) {
+                    slides.forEach((slide, i) => {
+                        slide.style.display = i === index ? "block" : "none";
+                    });
+                }
+
+                document.getElementById("prev-btn").addEventListener("click", () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    showSlide(currentIndex);
+                });
+
+                document.getElementById("next-btn").addEventListener("click", () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    showSlide(currentIndex);
+                });
+
                 showSlide(currentIndex);
             });
-
-            document.getElementById("next-btn").addEventListener("click", () => {
-                currentIndex = (currentIndex + 1) % slides.length;
-                showSlide(currentIndex);
-            });
-
-            showSlide(currentIndex);
-        });
-    
-
-        const shareModal = document.getElementById('shareModal');
-        const openShare = document.getElementById('openShare');
-        const closeShare = document.getElementById('closeShare');
-
-        openShare.addEventListener('click', () => {
-            shareModal.classList.add('active');
-        });
-
-        closeShare.addEventListener('click', () => {
-            shareModal.classList.remove('active');
-        });
-
-        shareModal.addEventListener('click', (e) => {
-            if (e.target === shareModal) {
-                shareModal.classList.remove('active');
-            }
-        });
-
-        const productUrl =
-            `https://shop.astraslide.co/${product.id}`;
-
-        const productImage =
-            product.images?.[0] || product.image;
-
-        const cleanDesc =
-            product.description.replace(/<[^>]*>/g, '').substring(0, 160);
-
-        document.title = `${product.title} | Astraslide Shop`;
-
-        document.getElementById("metaDescription")
-            .setAttribute("content", cleanDesc);
-
-        document.getElementById("ogTitle")
-            .setAttribute("content", `${product.title} | Astraslide Shop`);
-
-        document.getElementById("ogDescription")
-            .setAttribute("content", cleanDesc);
-
-        document.getElementById("ogImage")
-            .setAttribute("content", productImage);
-
-        document.getElementById("ogUrl")
-            .setAttribute("content", productUrl);
-
-        document.getElementById("twitterTitle")
-            .setAttribute("content", `${product.title} | Astraslide Shop`);
-
-        document.getElementById("twitterDescription")
-            .setAttribute("content", cleanDesc);
-
-        document.getElementById("twitterImage")
-            .setAttribute("content", productImage);
-
-        document.getElementById("canonical")
-            .setAttribute("href", productUrl);
-
-        const currentUrl = encodeURIComponent(window.location.href);
-        const pageTitle = encodeURIComponent(document.title);
-
-        document.getElementById('facebookShare').href =
-            `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-
-        document.getElementById('twitterShare').href =
-            `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
-
-        document.getElementById('whatsappShare').href =
-            `https://wa.me/?text=${pageTitle + ' ' + currentUrl}`;
-
-        document.getElementById('linkShare').addEventListener('click', () => {
-            navigator.clipboard.writeText(currentUrl)
-                .then(() => alert('Link copied to clipboard!'))
-                .catch(err => console.error('Failed to copy:', err));
-        });
     </script>
 </body>
 
