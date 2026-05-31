@@ -10,7 +10,7 @@
             "destination": "/shop/index.html"
         },
         {
-            "source": "/product/:id",
+            "source": "/shop/product/:id",
             "destination": "/shop/product.html?id=:id"
         },
         {
