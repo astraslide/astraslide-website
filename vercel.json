@@ -3,7 +3,13 @@
     "rewrites": [
         {
             "source": "/product/:id",
-            "destination": "/product.html"
+            "has": [
+                {
+                    "type": "host",
+                    "value": "shop.astraslide.co"
+                }
+            ],
+            "destination": "/shop/product"
         },
         {
             "source": "/:path*",
@@ -13,17 +19,7 @@
                     "value": "shop.astraslide.co"
                 }
             ],
-            "destination": "/shop/index.html"
-        },
-        {
-            "source": "/:path*",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "astraslide.co"
-                }
-            ],
-            "destination": "/landing/index.html"
+            "destination": "/shop/index"
         },
         {
             "source": "/privacy-policy",
@@ -33,7 +29,7 @@
                     "value": "astraslide.co"
                 }
             ],
-            "destination": "/landing/privacy-policy.html"
+            "destination": "/landing/privacy-policy"
         },
         {
             "source": "/return-policy",
@@ -43,7 +39,17 @@
                     "value": "astraslide.co"
                 }
             ],
-            "destination": "/landing/return-policy.html"
+            "destination": "/landing/return-policy"
+        },
+        {
+            "source": "/:path*",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "astraslide.co"
+                }
+            ],
+            "destination": "/landing/index"
         }
     ]
 }
