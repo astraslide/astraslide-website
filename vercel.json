@@ -1,0 +1,25 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/landing/index.html"
+        },
+        {
+            "source": "/privacy-policy",
+            "destination": "/landing/privacy-policy.html"
+        },
+        {
+            "source": "/return-policy",
+            "destination": "/landing/return-policy.html"
+        },
+        {
+            "source": "/shop",
+            "destination": "/shop/index.html"
+        },
+        {
+            "source": "/shop/products/:id",
+            "destination": "/shop/product.html?id=:id"
+        }
+    ],
+   "cleanUrls": true
+}
