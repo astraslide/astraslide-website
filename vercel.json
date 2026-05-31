@@ -17,7 +17,7 @@
             "destination": "/shop/index.html"
         },
         {
-            "source": "/shop/products/:id",
+            "source": "/products/:id",
             "destination": "/shop/product.html?id=:id"
         }
     ],
