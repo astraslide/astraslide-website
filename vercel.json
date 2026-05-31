@@ -9,7 +9,7 @@
                     "value": "shop.astraslide.co"
                 }
             ],
-            "destination": "/shop/product"
+            "destination": "/shop/product.html?id=:id"
         },
         {
             "source": "/:path*",
@@ -19,7 +19,7 @@
                     "value": "shop.astraslide.co"
                 }
             ],
-            "destination": "/shop/index"
+            "destination": "/shop/index.html"
         },
         {
             "source": "/privacy-policy",
@@ -29,7 +29,7 @@
                     "value": "astraslide.co"
                 }
             ],
-            "destination": "/landing/privacy-policy"
+            "destination": "/landing/privacy-policy.html"
         },
         {
             "source": "/return-policy",
@@ -39,7 +39,7 @@
                     "value": "astraslide.co"
                 }
             ],
-            "destination": "/landing/return-policy"
+            "destination": "/landing/return-policy.html"
         },
         {
             "source": "/:path*",
@@ -49,7 +49,7 @@
                     "value": "astraslide.co"
                 }
             ],
-            "destination": "/landing/index"
+            "destination": "/landing/index.html"
         }
     ]
 }
