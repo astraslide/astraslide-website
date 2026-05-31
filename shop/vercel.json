@@ -1,0 +1,13 @@
+{
+    "cleanUrls": true,
+    "rewrites": [
+        {
+            "source": "/product/:id",
+            "destination": "/product"
+        },
+        {
+            "source": "/:path*",
+            "destination": "/index"
+        }
+    ]
+}
