@@ -103,5 +103,6 @@
             "destination": "/product/:path*",
             "permanent": true
         }
-    ]
+    ],
+    "cleanUrls": true
 }
