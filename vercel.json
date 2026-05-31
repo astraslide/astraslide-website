@@ -3,13 +3,7 @@
     "rewrites": [
         {
             "source": "/product/:id",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "shop.astraslide.co"
-                }
-            ],
-            "destination": "/shop/product.html?id=:id"
+            "destination": "/product.html"
         },
         {
             "source": "/:path*",
