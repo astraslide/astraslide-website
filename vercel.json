@@ -69,6 +69,39 @@
                 }
             ],
             "destination": "/shop/product.html?id=:id"
+        },
+        {
+            "source": "/product/:path*",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "_gl"
+                }
+            ],
+            "destination": "/product/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/product/:path*",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "_ga"
+                }
+            ],
+            "destination": "/product/:path*",
+            "permanent": true
+        },
+        {
+            "source": "/product/:path*",
+            "has": [
+                {
+                    "type": "query",
+                    "key": "_gcl_au"
+                }
+            ],
+            "destination": "/product/:path*",
+            "permanent": true
         }
     ]
 }
