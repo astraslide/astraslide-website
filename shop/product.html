@@ -412,9 +412,16 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
 
-                const urlParams = new URLSearchParams(window.location.search);
-                const productId = urlParams.get("id");
-
+          // NEW — handles both /product/combo-filter AND /product?id=combo-filter
+            function getProductId() {
+                // Try path-based: /product/combo-filter
+                const pathMatch = window.location.pathname.match(/\/product\/(.+)/);
+                if (pathMatch) return pathMatch[1];
+                // Fallback to query string: ?id=combo-filter
+                return new URLSearchParams(window.location.search).get("id");
+            }
+            
+            const productId = getProductId();
                 if (!productId) {
                     document.getElementById("detail-title").textContent = "Product not found";
                     return;
