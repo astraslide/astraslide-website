@@ -406,13 +406,12 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://astra-slide.vercel.app/assets/js/products-data.js"></script>
-    <script src="https://astra-slide.vercel.app/assets/js/yes.js"></script>
     
     <script src="https://astra-slide.vercel.app/assets/js/main.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-
-          // NEW — handles both /product/combo-filter AND /product?id=combo-filter
+            
+            // NEW — handles both /product/combo-filter AND /product?id=combo-filter
             function getProductId() {
                 // Try path-based: /product/combo-filter
                 const pathMatch = window.location.pathname.match(/\/product\/(.+)/);
@@ -422,21 +421,21 @@
             }
             
             const productId = getProductId();
-                if (!productId) {
-                    document.getElementById("detail-title").textContent = "Product not found";
-                    return;
+            if (!productId) {
+                document.getElementById("detail-title").textContent = "Product not found";
+                return;
                 }
-
+                
                 const product = productsData.products.find(p => p.id === productId);
-
+                
                 if (!product) {
                     document.getElementById("detail-title").textContent = "Product not found";
                     return;
                 }
-
+                
                 document.getElementById("detail-title").textContent = product.title;
                 document.getElementById("detail-desc").innerHTML = product.description.trim();
-
+                
                 // ==========================
                 // META TAGS
                 // ==========================
@@ -459,45 +458,45 @@
 
                 document.getElementById("ogDescription")
                     .setAttribute("content", cleanDesc);
-
+                    
                 document.getElementById("ogImage")
-                    .setAttribute("content", productImage);
-
+                .setAttribute("content", productImage);
+                
                 document.getElementById("ogUrl")
-                    .setAttribute("content", productUrl);
-
+                .setAttribute("content", productUrl);
+                
                 document.getElementById("twitterTitle")
                     .setAttribute("content", `${product.title} | Astraslide Shop`);
-
-                document.getElementById("twitterDescription")
+                    
+                    document.getElementById("twitterDescription")
                     .setAttribute("content", cleanDesc);
-
-                document.getElementById("twitterImage")
+                    
+                    document.getElementById("twitterImage")
                     .setAttribute("content", productImage);
 
-                document.getElementById("canonical")
+                    document.getElementById("canonical")
                     .setAttribute("href", productUrl);
-
-                // ==========================
-                // SHARE LINKS
-                // ==========================
-
-                const currentUrl = encodeURIComponent(window.location.href);
+                    
+                    // ==========================
+                    // SHARE LINKS
+                    // ==========================
+                    
+                    const currentUrl = encodeURIComponent(window.location.href);
                 const pageTitle = encodeURIComponent(document.title);
-
+                
                 document.getElementById('facebookShare').href =
                     `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
 
-                document.getElementById('twitterShare').href =
+                    document.getElementById('twitterShare').href =
                     `https://twitter.com/intent/tweet?url=${currentUrl}&text=${pageTitle}`;
-
-                document.getElementById('whatsappShare').href =
+                    
+                    document.getElementById('whatsappShare').href =
                     `https://wa.me/?text=${pageTitle}%20${currentUrl}`;
-
-                document.getElementById('linkShare').addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    navigator.clipboard.writeText(window.location.href)
+                    
+                    document.getElementById('linkShare').addEventListener('click', (e) => {
+                        e.preventDefault();
+                        
+                        navigator.clipboard.writeText(window.location.href)
                         .then(() => alert('Link copied to clipboard!'))
                         .catch(err => console.error('Failed to copy:', err));
                 });
@@ -505,23 +504,23 @@
                 // ==========================
                 // CAROUSEL CODE
                 // ==========================
-
+                
                 const imagesEl = document.getElementById("detail-images");
                 imagesEl.innerHTML = "";
-
+                
                 const imageUrls = product.images || [
                     product.image
                 ];
-
+                
                 imageUrls.forEach((imgUrl, i) => {
                     const slide = document.createElement("div");
                     slide.className = "carousel-slide";
-
+                    
                     const img = document.createElement("img");
                     img.src = imgUrl;
                     img.alt = `${product.title} view ${i + 1}`;
                     img.classList.add("product-detail-img");
-
+                    
                     slide.appendChild(img);
                     imagesEl.appendChild(slide);
                 });
@@ -534,7 +533,7 @@
                         slide.style.display = i === index ? "block" : "none";
                     });
                 }
-
+                
                 document.getElementById("prev-btn").addEventListener("click", () => {
                     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
                     showSlide(currentIndex);
@@ -548,6 +547,7 @@
                 showSlide(currentIndex);
             });
     </script>
+    <script src="https://astra-slide.vercel.app/assets/js/yes.js"></script>
     <script src="https://astra-slide.vercel.app/assets/js/app.js"></script>
 </body>
 
