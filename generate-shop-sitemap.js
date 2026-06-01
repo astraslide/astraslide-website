@@ -1,8 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-// Load your products data
-const { productsData } = require('./assets/js/product-data.js');
+// Mock window so products-data.js doesn't throw
+global.window = {};
+
+eval(fs.readFileSync(path.join(__dirname, './assets/js/products-data.js'), 'utf8'));
+
+// Read from the mocked window object
+const productsData = window.productsData;
 
 const baseUrl = 'https://shop.astraslide.co';
 const today = new Date().toISOString().split('T')[0];
