@@ -4,7 +4,7 @@ const path = require('path');
 // Mock window so products-data.js doesn't throw
 global.window = {};
 
-eval(fs.readFileSync(path.join(__dirname, './assets/js/products-data.js'), 'utf8'));
+eval(fs.readFileSync(path.join(__dirname, './assets/js/product-data.js'), 'utf8'));
 
 // Read from the mocked window object
 const productsData = window.productsData;
