@@ -1,6 +1,7 @@
 {
     "name": "Astraslide Shop",
     "short_name": "Shop",
+    "description": "Buy high-quality swimming pool pumps, filters, accessories, and maintenance equipment from Astraslide.",
     "icons": [
         {
             "src": "https://astra-slide.vercel.app/assets/img/android-chrome-192x192.png",

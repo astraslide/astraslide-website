@@ -1,6 +1,7 @@
 {
     "name": "Astraslide",
     "short_name": "Astraslide",
+    "description": "Astraslide provides swimming pool equipment, installation services, and maintenance solutions for residential and commercial pools.",
     "icons": [
         {
             "src": "https://astra-slide.vercel.app/assets/img/android-chrome-192x192.png",
