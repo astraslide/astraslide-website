@@ -505,6 +505,20 @@
                     .catch(err => console.error('Failed to copy:', err));
             });
 
+            const shareModal = document.getElementById('shareModal');
+
+            document.getElementById('openShare').addEventListener('click', () => {
+                shareModal.classList.add('active');
+            });
+
+            document.getElementById('closeShare').addEventListener('click', () => {
+                shareModal.classList.remove('active');
+            });
+
+            shareModal.addEventListener('click', (e) => {
+                if (e.target === shareModal) shareModal.classList.remove('active');
+            });
+
             // ==========================
             // CAROUSEL CODE
             // ==========================
