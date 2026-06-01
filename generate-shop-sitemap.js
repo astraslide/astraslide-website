@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Load your products data
-const { productsData } = require('https://astra-slide.vercel.app/assets/js/products-data.js');
+const { productsData } = require('./assets/js/product-data.js');
 
 const baseUrl = 'https://shop.astraslide.co';
 const today = new Date().toISOString().split('T')[0];
