@@ -254,10 +254,10 @@ const productsData = {
         `,
             category: 'fittings',
             rating: 4.4,
-            image: 'https://astra-slide.vercel.app/assets/products/WB.jpg',
+            image: 'https://astra-slide.vercel.app/assets/products/wb.jpg',
             images: [
-                'https://astra-slide.vercel.app/assets/products/WB.jpg',
-                'https://astra-slide.vercel.app/assets/products/WB-2.jpg',
+                'https://astra-slide.vercel.app/assets/products/wb.jpg',
+                'https://astra-slide.vercel.app/assets/products/wb-2.jpg',
             ],
             features: ['360° swivel nozzle', 'Flush-wall mount', 'Chemical & UV resistant']
         },
@@ -624,7 +624,7 @@ const productsData = {
         `,
             category: 'pumps-filters',
             rating: 4.3,
-            image: 'https://astra-slide.vercel.app/assets/img/products/combo-bag.jpg',
+            image: 'https://astra-slide.vercel.app/assets/products/combo-bag.jpg',
             images: [
                 'https://astra-slide.vercel.app/assets/products/combo-bag.jpg',
                 'https://astra-slide.vercel.app/assets/products/combo-bag-2.jpg',
@@ -1101,7 +1101,7 @@ const productsData = {
         `,
             category: 'lighting',
             rating: 4.7,
-            image: '.https://astra-slide.vercel.app/assets/products/9eyed.jpg',
+            image: 'https://astra-slide.vercel.app/assets/products/9eyed.jpg',
             images: [
                 'https://astra-slide.vercel.app/assets/products/9eyed.jpg',
             ],
