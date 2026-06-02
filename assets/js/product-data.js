@@ -126,7 +126,7 @@ const productsData = {
                 "https://astra-slide.vercel.app/assets/products/SPLMUS.jpg",
                 "https://astra-slide.vercel.app/assets/products/SPLOFS.jpg",
                 "https://astra-slide.vercel.app/assets/products/SPLSFS.jpg",
-                "https://astra-slide.vercel.app/assets/products/SPLSlS.jpg",
+                "https://astra-slide.vercel.app/assets/products/SPLSLS.jpg",
             ],
             features: [
                 "Grade 304 stainless steel",
@@ -515,7 +515,7 @@ const productsData = {
             image: 'https://astra-slide.vercel.app/assets/products/pfc-2.png',
             images: [
                 'https://astra-slide.vercel.app/assets/products/pfc-2.png',
-                'https://astra-slide.vercel.app/assets/products/pfc.png',
+                'https://astra-slide.vercel.app/assets/products/PFC.png',
             ],
             features: ['Pressure-tight seal', 'UV-stabilised ABS', 'Tool-free access']
         },
@@ -881,7 +881,6 @@ const productsData = {
                 'https://astra-slide.vercel.app/assets/products/APLWMT.jpg',
                 'https://astra-slide.vercel.app/assets/products/APLWMT-2.jpg',
                 'https://astra-slide.vercel.app/assets/products/APLWMT-3.jpg',
-                'https://astra-slide.vercel.app/assets/products/conduit.png',
             ],
             features: ['IP68 waterproof', '120° wide beam', 'RGB colour-changing option']
         },
