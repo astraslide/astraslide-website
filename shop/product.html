@@ -503,42 +503,60 @@
             // META TAGS
             // ==========================
 
-            const productUrl = `https://shop.astraslide.co/${product.id}`;
+            const siteOrigin = 'https://shop.astraslide.co';
 
-            const productImage =
-                product.images?.[0] || product.image;
+            const toAbsoluteUrl = (value, fallback = '') => {
+                if (!value) return fallback;
 
-            const cleanDesc =
-                product.description.replace(/<[^>]*>/g, '').substring(0, 160);
+                if (typeof value === 'string') {
+                    if (/^https?:\/\//i.test(value)) return value;
+                    return new URL(value, siteOrigin).href;
+                }
+
+                if (typeof value === 'object') {
+                    const candidate = value.url || value.src || value.image || value.path;
+                    if (typeof candidate === 'string' && candidate.trim()) {
+                        if (/^https?:\/\//i.test(candidate)) return candidate;
+                        return new URL(candidate, siteOrigin).href;
+                    }
+                }
+
+                return fallback;
+            };
+
+            const fallbackImage = `${siteOrigin}/assets/img/summary.png`;
+
+            const productUrl = `${siteOrigin}/${product.id}`;
+
+            const productImage = toAbsoluteUrl(
+                product.images?.[0] || product.image,
+                fallbackImage
+            );
+
+            const cleanDesc = (product.description || '')
+                .replace(/<[^>]*>/g, '')
+                .replace(/\s+/g, ' ')
+                .trim()
+                .substring(0, 160);
 
             document.title = `${product.title} | Astraslide Shop`;
 
-            document.getElementById("metaDescription")
-                .setAttribute("content", cleanDesc);
+            const setMeta = (id, value) => {
+                const el = document.getElementById(id);
+                if (el && value) el.setAttribute('content', value);
+            };
 
-            document.getElementById("ogTitle")
-                .setAttribute("content", `${product.title} | Astraslide Shop`);
+            setMeta("metaDescription", cleanDesc);
+            setMeta("ogTitle", `${product.title} | Astraslide Shop`);
+            setMeta("ogDescription", cleanDesc);
+            setMeta("ogImage", productImage);
+            setMeta("ogUrl", productUrl);
+            setMeta("twitterTitle", `${product.title} | Astraslide Shop`);
+            setMeta("twitterDescription", cleanDesc);
+            setMeta("twitterImage", productImage);
 
-            document.getElementById("ogDescription")
-                .setAttribute("content", cleanDesc);
-
-            document.getElementById("ogImage")
-                .setAttribute("content", productImage);
-
-            document.getElementById("ogUrl")
-                .setAttribute("content", productUrl);
-
-            document.getElementById("twitterTitle")
-                .setAttribute("content", `${product.title} | Astraslide Shop`);
-
-            document.getElementById("twitterDescription")
-                .setAttribute("content", cleanDesc);
-
-            document.getElementById("twitterImage")
-                .setAttribute("content", productImage);
-
-            document.getElementById("canonical")
-                .setAttribute("href", productUrl);
+            const canonical = document.getElementById("canonical");
+            if (canonical) canonical.setAttribute("href", productUrl);
 
             // ==========================
             // SHARE LINKS
